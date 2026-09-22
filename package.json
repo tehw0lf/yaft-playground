@@ -14,7 +14,8 @@
     "backend:down": "./scripts/backend.sh down",
     "backend:seed": "./scripts/seed.sh",
     "prestart": "node -e \"const fs=require('fs');const p='src/environments/seed.json';if(!fs.existsSync(p))fs.copyFileSync('src/environments/seed.example.json',p)\"",
-    "prebuild": "node -e \"const fs=require('fs');const p='src/environments/seed.json';if(!fs.existsSync(p))fs.copyFileSync('src/environments/seed.example.json',p)\""
+    "prebuild": "node -e \"const fs=require('fs');const p='src/environments/seed.json';if(!fs.existsSync(p))fs.copyFileSync('src/environments/seed.example.json',p)\"",
+    "pretest": "node -e \"const fs=require('fs');const p='src/environments/seed.json';if(!fs.existsSync(p))fs.copyFileSync('src/environments/seed.example.json',p)\""
   },
   "dependencies": {
     "@angular/common": "22.1.5",
