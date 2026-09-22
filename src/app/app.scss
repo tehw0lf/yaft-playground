@@ -1,0 +1,28 @@
+h1 {
+  margin-top: 0;
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  border: 1px solid currentColor;
+  padding: 0.4rem 0.8rem;
+  text-align: left;
+}
+
+.ok {
+  color: green;
+}
+
+.bad {
+  color: crimson;
+  font-weight: bold;
+}
+
+.error {
+  color: crimson;
+}
