@@ -34,6 +34,19 @@ npm run backend:down    # stop it and drop the volume
 The seed computes its timestamps at seed time, so a window that is meant to be
 open is open whenever you run it.
 
+### Against the deployed instance
+
+```bash
+API_URL=https://yaft.tehwolf.de npm run backend:seed
+npm run e2e
+```
+
+This puts Traefik, Cloudflare and CORS in the path, which the local backend
+cannot. The instance allows five writes a minute and the seed makes six, so it
+pauses for a few seconds on the last one. In CI the same run is the manual
+`e2e against yaft.tehwolf.de` workflow. Each run leaves a toggle group behind
+that the retention job removes after 30 days.
+
 ## What it checks
 
 | Toggle | Expected | Why |

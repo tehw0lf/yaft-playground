@@ -9,7 +9,7 @@
     "build": "nx build yaft-playground",
     "lint": "eslint src e2e/src",
     "test": "jest --passWithNoTests",
-    "e2e": "npm --prefix e2e exec -- playwright test",
+    "e2e": "cd e2e && playwright test --project=chromium",
     "backend:up": "./scripts/backend.sh up",
     "backend:down": "./scripts/backend.sh down",
     "backend:seed": "./scripts/seed.sh",
