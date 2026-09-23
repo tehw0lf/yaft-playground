@@ -12,8 +12,12 @@ cd "$(dirname "$0")/.."
 API_URL="${API_URL:-http://127.0.0.1:8080}"
 OUT="src/environments/seed.json"
 
+# --retry covers 429: yaft.tehwolf.de allows 5 writes a minute and the seed
+# makes 6, so against it the last call is always refused at first. curl
+# counts 429 as transient, honours Retry-After and otherwise backs off.
 post() {
-  curl -sf -X POST "${API_URL}/features" -H 'Content-Type: application/json' -d "$1"
+  curl -sf --retry 6 --retry-max-time 120 -X POST "${API_URL}/features" \
+    -H 'Content-Type: application/json' -d "$1"
 }
 
 iso() {
