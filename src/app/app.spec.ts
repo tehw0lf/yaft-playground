@@ -9,7 +9,9 @@ import { App } from './app';
  */
 describe('App', () => {
   beforeEach(async () => {
-    await TestBed.configureTestingModule({ imports: [App] }).compileComponents();
+    await TestBed.configureTestingModule({
+      imports: [App],
+    }).compileComponents();
   });
 
   it('explains itself rather than rendering "all off" without a seed', async () => {

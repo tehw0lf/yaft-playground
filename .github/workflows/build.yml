@@ -19,11 +19,11 @@ jobs:
       security-events: write
       pull-requests: write
     with:
-      tool: "npm"
-      test: "run test"
-      build_branch: "run build"
-      build_main: "run build"
-      artifact_path: "dist"
+      tool: 'npm'
+      test: 'run test'
+      build_branch: 'run build'
+      build_main: 'run build'
+      artifact_path: 'dist'
       npm_audit_omit_dev: true
 
   # The point of this repository: the library driven against a real backend

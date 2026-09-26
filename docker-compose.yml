@@ -20,7 +20,7 @@ services:
       # the old path.
       - yaft_playground_db:/var/lib/postgresql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U yaft -d yaft"]
+      test: ['CMD-SHELL', 'pg_isready -U yaft -d yaft']
       interval: 5s
       timeout: 5s
       retries: 20
@@ -36,7 +36,7 @@ services:
   yaft:
     image: ghcr.io/tehw0lf/yaft:latest
     ports:
-      - "127.0.0.1:8080:8080"
+      - '127.0.0.1:8080:8080'
     environment:
       DB_DSN: postgres://yaft:playground@yaft-db:5432/yaft
     depends_on:

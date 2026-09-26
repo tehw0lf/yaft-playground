@@ -97,7 +97,7 @@ export class App implements OnInit {
   async ngOnInit(): Promise<void> {
     if (!this.seed.uuid) {
       this.error.set(
-        'No seed data. Run scripts/backend.sh up and scripts/seed.sh first.'
+        'No seed data. Run scripts/backend.sh up and scripts/seed.sh first.',
       );
       return;
     }
@@ -105,7 +105,7 @@ export class App implements OnInit {
     try {
       const provider = new ApiServiceFeatureProvider(
         this.seed.apiUrl,
-        this.seed.uuid
+        this.seed.uuid,
       );
       FeatureToggleBase.featureProvider = provider;
 
@@ -121,7 +121,7 @@ export class App implements OnInit {
         rows.map((row) => ({
           ...row,
           actual: provider.isEnabled(this.fullKey(row.key)),
-        }))
+        })),
       );
       this.ready.set(true);
     } catch (e) {

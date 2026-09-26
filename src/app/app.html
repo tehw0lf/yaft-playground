@@ -7,42 +7,38 @@
 </p>
 
 @if (error()) {
-  <p class="error" data-testid="error">{{ error() }}</p>
+<p class="error" data-testid="error">{{ error() }}</p>
 } @else {
-  <p data-testid="summary" [class.ok]="allMatch()" [class.bad]="!allMatch()">
-    @if (!ready()) {
-      Loading from {{ seed.apiUrl }}…
-    } @else if (allMatch()) {
-      All {{ rows().length }} toggles match.
-    } @else {
-      Mismatch: the library and the backend disagree.
-    }
-  </p>
+<p data-testid="summary" [class.ok]="allMatch()" [class.bad]="!allMatch()">
+  @if (!ready()) { Loading from {{ seed.apiUrl }}… } @else if (allMatch()) { All
+  {{ rows().length }} toggles match. } @else { Mismatch: the library and the
+  backend disagree. }
+</p>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Toggle</th>
-        <th>Expected</th>
-        <th>Actual</th>
-        <th>Why</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (row of rows(); track row.key) {
-        <tr
-          [attr.data-testid]="'row-' + row.key"
-          [class.ok]="row.actual === row.expected"
-          [class.bad]="row.actual !== null && row.actual !== row.expected"
-        >
-          <td><code>{{ row.key }}</code></td>
-          <td>{{ row.expected }}</td>
-          <td [attr.data-testid]="'actual-' + row.key">
-            {{ row.actual === null ? '…' : row.actual }}
-          </td>
-          <td>{{ row.why }}</td>
-        </tr>
-      }
-    </tbody>
-  </table>
+<table>
+  <thead>
+    <tr>
+      <th>Toggle</th>
+      <th>Expected</th>
+      <th>Actual</th>
+      <th>Why</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (row of rows(); track row.key) {
+    <tr
+      [attr.data-testid]="'row-' + row.key"
+      [class.ok]="row.actual === row.expected"
+      [class.bad]="row.actual !== null && row.actual !== row.expected"
+    >
+      <td><code>{{ row.key }}</code></td>
+      <td>{{ row.expected }}</td>
+      <td [attr.data-testid]="'actual-' + row.key">
+        {{ row.actual === null ? '…' : row.actual }}
+      </td>
+      <td>{{ row.why }}</td>
+    </tr>
+    }
+  </tbody>
+</table>
 }

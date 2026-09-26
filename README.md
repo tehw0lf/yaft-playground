@@ -23,7 +23,7 @@ earned its keep twice:
 npm install
 npm run backend:up      # pulls the published images, waits for the API
 npm run backend:seed    # creates the toggles, writes src/environments/seed.json
-npm start               # http://localhost:4200
+npm start               # http://localhost:4213
 ```
 
 ```bash
@@ -49,15 +49,15 @@ that the retention job removes after 30 days.
 
 ## What it checks
 
-| Toggle | Expected | Why |
-|---|---|---|
-| `alwaysOn` | on | value is `"true"`, no bounds |
-| `alwaysOff` | off | value is `"false"` |
-| `notYetActive` | off | `activeAt` is a year away |
-| `alreadyDisabled` | off | `disabledAt` was yesterday |
-| `insideWindow` | on | now is between the two bounds |
-| `outsideWindow` | off | the whole window is in the future |
-| `noSuchToggle` | off | an unknown key is off, not an error |
+| Toggle            | Expected | Why                                 |
+| ----------------- | -------- | ----------------------------------- |
+| `alwaysOn`        | on       | value is `"true"`, no bounds        |
+| `alwaysOff`       | off      | value is `"false"`                  |
+| `notYetActive`    | off      | `activeAt` is a year away           |
+| `alreadyDisabled` | off      | `disabledAt` was yesterday          |
+| `insideWindow`    | on       | now is between the two bounds       |
+| `outsideWindow`   | off      | the whole window is in the future   |
+| `noSuchToggle`    | off      | an unknown key is off, not an error |
 
 The time-based rows are the ones that need a real backend. The backend flips
 `value` on a cron tick up to a minute late, while the library evaluates
