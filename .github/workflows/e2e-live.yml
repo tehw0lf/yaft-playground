@@ -11,8 +11,8 @@ on:
   workflow_dispatch:
     inputs:
       api_url:
-        description: "Backend to run against"
-        default: "https://yaft.tehwolf.de"
+        description: 'Backend to run against'
+        default: 'https://yaft.tehwolf.de'
         required: true
 
 jobs:
