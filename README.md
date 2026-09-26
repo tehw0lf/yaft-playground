@@ -23,7 +23,7 @@ earned its keep twice:
 npm install
 npm run backend:up      # pulls the published images, waits for the API
 npm run backend:seed    # creates the toggles, writes src/environments/seed.json
-npm start               # http://localhost:4200
+npm start               # http://localhost:4213
 ```
 
 ```bash
