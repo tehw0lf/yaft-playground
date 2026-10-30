@@ -44,10 +44,10 @@
     "serve": {
       "continuous": true,
       "executor": "@angular/build:dev-server",
+      "defaultConfiguration": "development",
       "options": {
         "port": 4213
       },
-      "defaultConfiguration": "development",
       "configurations": {
         "production": {
           "buildTarget": "yaft-playground:build:production"
@@ -108,7 +108,11 @@
         "port": 4200,
         "staticFilePath": "dist/yaft-playground/browser",
         "spa": true
-      }
+      },
+      "readyWhen": {
+        "signal": true
+      },
+      "dependsOn": ["build"]
     }
   }
 }
