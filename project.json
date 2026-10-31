@@ -44,10 +44,10 @@
     "serve": {
       "continuous": true,
       "executor": "@angular/build:dev-server",
+      "defaultConfiguration": "development",
       "options": {
         "port": 4213
       },
-      "defaultConfiguration": "development",
       "configurations": {
         "production": {
           "buildTarget": "yaft-playground:build:production"
@@ -55,6 +55,9 @@
         "development": {
           "buildTarget": "yaft-playground:build:development"
         }
+      },
+      "readyWhen": {
+        "signal": true
       }
     },
     "extract-i18n": {
@@ -103,6 +106,10 @@
     "serve-static": {
       "continuous": true,
       "executor": "@nx/web:file-server",
+      "readyWhen": {
+        "signal": true
+      },
+      "dependsOn": ["build"],
       "options": {
         "buildTarget": "yaft-playground:build",
         "port": 4200,
