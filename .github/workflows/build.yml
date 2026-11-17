@@ -16,6 +16,8 @@ jobs:
       contents: write
       packages: write
       id-token: write
+      # the reusable security scan declares a failure-issue job that needs it
+      issues: write
       security-events: write
       pull-requests: write
     with:
